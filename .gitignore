@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Rider
+.idea/
+
 # Gradle cache directory
 .gradle/
 
@@ -66,6 +69,9 @@ crashlytics-build.properties
 
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Addressables Links
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/link.xml*
 
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
