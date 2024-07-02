@@ -1,0 +1,16 @@
+{
+    "name": "Calc.Presentation",
+    "rootNamespace": "Calc",
+    "references": [
+        "GUID:da0300a2bd0f4829a20bb61316edfaf7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
