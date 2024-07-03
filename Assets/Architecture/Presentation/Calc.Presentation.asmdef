@@ -2,13 +2,27 @@
     "name": "Calc.Presentation",
     "rootNamespace": "Calc",
     "references": [
-        "GUID:da0300a2bd0f4829a20bb61316edfaf7"
+        "GUID:da0300a2bd0f4829a20bb61316edfaf7",
+        "GUID:62fbde149165a684cb0d09927f9f36db",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:2b78dc61ba35e42c39ba2aabce11b6c4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": true,
-    "precompiledReferences": [],
+    "precompiledReferences": [
+        "ZLogger.dll",
+        "System.Collections.Immutable.dll",
+        "Microsoft.Extensions.DependencyInjection.dll",
+        "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "Microsoft.Extensions.Logging.dll",
+        "Microsoft.Extensions.Logging.Abstractions.dll",
+        "System.Text.Json.dll",
+        "System.Text.Encodings.Web.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll",
+        "Utf8StringInterpolation.dll"
+    ],
     "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
