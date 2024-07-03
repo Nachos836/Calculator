@@ -818,8 +818,7 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   additionalCompilerArguments:
     Standalone:
-    - -langversion:preview
-    - -nullable:enable
+    - -langVersion:preview
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 1

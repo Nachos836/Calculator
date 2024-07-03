@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.annulusgames.csproj-langversion-processor": "https://github.com/AnnulusGames/CsprojLangVersionProcessor.git?path=Assets/CsprojLangVersionProcessor",
     "com.cysharp.messagepipe": "1.8.1",
     "com.cysharp.messagepipe.vcontainer": "1.8.1",
     "com.cysharp.unitask": "2.5.5",

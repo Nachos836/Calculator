@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.annulusgames.csproj-langversion-processor": {
+      "version": "https://github.com/AnnulusGames/CsprojLangVersionProcessor.git?path=Assets/CsprojLangVersionProcessor",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "587d33cbcef00a411620e4aa21fac1f5aa5ade07"
+    },
     "com.cysharp.messagepipe": {
       "version": "1.8.1",
       "depth": 0,
