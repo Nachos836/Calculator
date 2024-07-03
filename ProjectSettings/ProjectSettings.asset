@@ -816,7 +816,10 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols: {}
-  additionalCompilerArguments: {}
+  additionalCompilerArguments:
+    Standalone:
+    - -langversion:preview
+    - -nullable:enable
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 1
@@ -838,7 +841,7 @@ PlayerSettings:
     iPhone: 1
     tvOS: 1
   incrementalIl2cppBuild: {}
-  suppressCommonWarnings: 1
+  suppressCommonWarnings: 0
   allowUnsafeCode: 1
   useDeterministicCompilation: 1
   additionalIl2CppArgs: 
