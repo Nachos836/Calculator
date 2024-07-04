@@ -2,6 +2,26 @@
 
 ---
 
+## v0.2.0-alpha
+#### Establishing DI and Application Entry Point
+
+### Added:
+1. Application Entry Point
+2. DI via VContainer
+3. MessagePipe
+4. ZLogger
+5. .gitattributes rules and enforce LF-endings
+6. Root Scope with major app registrations
+7. Dedicated Presentation Scope
+8. Provide dedicated logging infrastructure via ILogger<T>
+### Changed:
+1. C# Lang set to the latest (for better logging and source generation)
+2. Enforce nullables for whole solution
+3. Disable suppression of common issues in Unity (prefer explicitness)
+4. Updated Scriptable Build Pipeline
+
+---
+
 ## v0.1.0-alpha
 #### Establishing Clean Architecture
 
