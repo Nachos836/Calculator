@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Calc.Domain.Calculations;
 using NUnit.Framework;
 
 namespace Calc.Architecture.Domain.Tests.UnitTests
 {
-    using Calc.Domain.Operation;
-
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal sealed class Operand_UnitTests
     {

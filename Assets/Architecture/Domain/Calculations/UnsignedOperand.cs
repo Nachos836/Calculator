@@ -1,8 +1,9 @@
 ﻿using System;
-using Calc.Domain.Functional;
 
-namespace Calc.Domain.Operation
+namespace Calc.Domain.Calculations
 {
+    using Functional;
+
     public readonly record struct UnsignedOperand
     {
         public decimal Raw { get; }
