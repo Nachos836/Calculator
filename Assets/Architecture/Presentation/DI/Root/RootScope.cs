@@ -2,7 +2,6 @@
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-using ZLogger;
 
 namespace Calc.Architecture.Presentation.DI.Root
 {
@@ -24,7 +23,7 @@ namespace Calc.Architecture.Presentation.DI.Root
                 .AddLogger<ApplicationEntryPoint>();
 
             builder.RegisterEntryPoint<ApplicationEntryPoint>();
-            builder.RegisterEntryPointExceptionHandler(exception => logger.ZLogCritical(exception: exception, $"EntryPoint Exception Handler:"));
+            builder.RegisterEntryPointExceptionHandler(logger.HandleException);
         }
 
         protected override void OnDestroy()

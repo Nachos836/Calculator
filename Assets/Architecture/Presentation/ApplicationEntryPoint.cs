@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using VContainer.Unity;
 using ZLogger;
@@ -20,7 +21,7 @@ namespace Calc.Architecture.Presentation
         }
     }
 
-    // ReSharper disable once InconsistentNaming
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal static partial class ApplicationEntryPoint_GeneratedLogFormats
     {
         [ZLoggerMessage(LogLevel.Trace, "{message}")]

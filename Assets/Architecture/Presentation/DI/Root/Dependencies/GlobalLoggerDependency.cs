@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using VContainer;
+using ZLogger;
 using ZLogger.Unity;
 
 namespace Calc.Architecture.Presentation.DI.Root.Dependencies
@@ -24,5 +25,12 @@ namespace Calc.Architecture.Presentation.DI.Root.Dependencies
 
             return builder;
         }
+    }
+
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    internal static partial class GlobalLoggerDependency_GeneratedLogFormats
+    {
+        [ZLoggerMessage(LogLevel.Critical)]
+        public static partial void HandleException(this ILogger logger, Exception ex);
     }
 }
