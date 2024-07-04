@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## v0.3.0-alpha
+#### Establishing Domain Layer
+
+### Added:
+1. Result and Result<T> pattern
+   1. Contains Possible Outcomes and process errors
+2. Unsigned Operand Value Object
+3. Unsigned Binary Operator Value Object
+4. Unsigned Operation Aggregate
+5. Result initial tests
+6. Operator TDD-based Unit Tests
+7. Profiling package
+
 ---
 
 ## v0.2.0-alpha
