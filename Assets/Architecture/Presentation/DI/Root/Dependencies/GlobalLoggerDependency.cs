@@ -5,7 +5,7 @@ using VContainer;
 using ZLogger;
 using ZLogger.Unity;
 
-namespace Calc.Architecture.Presentation.DI.Root.Dependencies
+namespace Calc.Presentation.DI.Root.Dependencies
 {
     internal static class GlobalLoggerDependency
     {

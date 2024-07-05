@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: Calc.Architecture.Presentation.DI.Root.RootScope
+    TypeName: 
   autoRun: 1
   autoInjectGameObjects: []

@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Calc.Architecture.Presentation.DI.Root
+namespace Calc.Presentation.DI.Root
 {
     using Dependencies;
     using Common.Dependencies;
