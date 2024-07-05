@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 namespace Calc.Domain.Functional
 {
-    [StructLayout(LayoutKind.Explicit)]
     public readonly struct Result<TValue>
     {
-        [FieldOffset(0)] private readonly Income _kind;
+        private readonly Income _kind;
 
-        [FieldOffset(sizeof(Income))] private readonly TValue _income;
-        [FieldOffset(sizeof(Income))] private readonly Exception _exception;
+        private readonly TValue _income;
+        private readonly Exception _exception;
 
         private Result(TValue value)
         {
@@ -47,6 +45,17 @@ namespace Calc.Domain.Functional
             {
                 Income.None => Result<TValue, TAnother>.Error,
                 Income.Value => Result<TValue, TAnother>.FromResult(_income, another),
+                Income.Exception => Result<TValue, TAnother>.FromException(_exception),
+                _ => Result<TValue, TAnother>.Error
+            };
+        }
+
+        public Result<TValue, TAnother> Combine<TAnother>(Result<TAnother> another)
+        {
+            return _kind switch
+            {
+                Income.None => Result<TValue, TAnother>.Error,
+                Income.Value when another._kind is Income.Value => Result<TValue, TAnother>.FromResult(_income, another._income),
                 Income.Exception => Result<TValue, TAnother>.FromException(_exception),
                 _ => Result<TValue, TAnother>.Error
             };
@@ -168,6 +177,19 @@ namespace Calc.Domain.Functional
             if (_income.Provided)
             {
                 action.Invoke(_income.First, _income.Second);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Result<TAnother> Run<TAnother>(Func<TFirst, TSecond, Result<TAnother>> action)
+        {
+            if (_income.Provided)
+            {
+                return action.Invoke(_income.First, _income.Second);
+            }
+            else
+            {
+                return Result<TAnother>.Error;
             }
         }
 

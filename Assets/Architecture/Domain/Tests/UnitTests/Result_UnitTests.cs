@@ -1,9 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
-namespace Calc.Architecture.Domain.Tests.UnitTests
+namespace Calc.Domain.Tests.UnitTests
 {
-    using Calc.Domain.Functional;
+    using Functional;
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal sealed class Result_UnitTests
@@ -18,19 +18,6 @@ namespace Calc.Architecture.Domain.Tests.UnitTests
             (
                 success: storedValue => Assert.AreEqual(value, storedValue),
                 error: static exception => Assert.Fail(exception.Message)
-            );
-        }
-
-        [Test]
-        public void ResultWithValue0_99999mDecimalCreated_Fails()
-        {
-            var value = 0.99999m;
-            var candidate = Result<decimal>.FromResult(value);
-
-            candidate.Match
-            (
-                success: static _ => Assert.Fail("Should not happen!"),
-                error: static exception => Assert.Pass(exception.Message)
             );
         }
     }
