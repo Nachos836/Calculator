@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 
 namespace Calc.Domain.Functional
@@ -11,18 +12,22 @@ namespace Calc.Domain.Functional
 
         private Result(Exception error) => _error = (Provided: true, error);
 
-        public static Result Success { get; } = new ();
-        public static Result Error { get; } = new (Unexpected.Error);
+        [Pure] public static Result Success { get; } = new ();
+        [Pure] public static Result Error { get; } = new (Unexpected.Error);
+        [Pure] public static Result Impossible { get; } = new (Unexpected.Impossible);
 
-        public bool IsSuccessful => _error.Provided is false;
-        public bool IsFailure => _error.Provided;
+        [Pure] public bool IsSuccessful => _error.Provided is false;
+        [Pure] public bool IsFailure => _error.Provided;
 
+        [Pure]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator Result (Exception error) => new (error);
 
+        [Pure]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Result FromException(Exception exception) => exception;
 
+        [Pure]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public TMatch Match<TMatch>(Func<TMatch> success, Func<Exception, TMatch> error)
         {
@@ -42,6 +47,17 @@ namespace Calc.Domain.Functional
             {
                 error.Invoke(_error.Value);
             }
+        }
+
+        [Pure]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return this switch
+            {
+                _ when _error.Provided => _error.Value.Message,
+                _ => nameof(Success)
+            };
         }
     }
 }
