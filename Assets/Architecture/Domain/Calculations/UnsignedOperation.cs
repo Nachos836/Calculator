@@ -15,9 +15,14 @@
             _operator = @operator;
         }
 
-        public Result<UnsignedOperand> Execute()
+        public Result<UnsignedOperand, string> Execute()
         {
-            return _operator.Calculate(_first, _second);
+            var first = _first;
+            var second = _second;
+            var @operator = _operator;
+
+            return _operator.Calculate(_first, _second)
+                .Attach<string>(result => $"{first}{@operator}{second}={result}");
         }
     }
 }

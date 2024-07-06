@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Calc.Domain.Calculations
 {
@@ -29,6 +30,12 @@ namespace Calc.Domain.Calculations
         private UnsignedOperand(decimal income)
         {
             Raw = income;
+        }
+
+        public override string ToString()
+        {
+            return decimal.Truncate(Raw)
+                .ToString(CultureInfo.InvariantCulture);
         }
     }
 }
