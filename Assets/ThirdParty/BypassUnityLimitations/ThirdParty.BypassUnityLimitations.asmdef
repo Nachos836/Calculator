@@ -1,0 +1,14 @@
+{
+    "name": "SharpTales.Feature.BypassUnityLimitations",
+    "rootNamespace": "SharpTales",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
