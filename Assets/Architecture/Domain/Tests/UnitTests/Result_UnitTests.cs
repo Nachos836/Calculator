@@ -1,10 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
+using ThirdParty.Functional;
 
 namespace Calc.Domain.Tests.UnitTests
 {
-    using Functional;
-
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal sealed class Result_UnitTests
     {

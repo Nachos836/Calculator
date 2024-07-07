@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calc.Domain.Functional.Outcome
+namespace ThirdParty.Functional.Outcome
 {
     internal static class Unexpected
     {

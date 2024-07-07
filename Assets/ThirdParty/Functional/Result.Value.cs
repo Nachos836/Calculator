@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 
-namespace Calc.Domain.Functional
+namespace ThirdParty.Functional
 {
     public readonly struct Result<TValue>
     {
@@ -247,6 +247,18 @@ namespace Calc.Domain.Functional
 
         [Pure]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public RichResult<TAnother> Run<TAnother>(Func<TFirst, TSecond, RichResult<TAnother>> action)
+        {
+            return this switch
+            {
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
+                _ when _exception.Provided => RichResult<TAnother>.FromException(_exception.Value),
+                _ => RichResult<TAnother>.Impossible
+            };
+        }
+
+        [Pure]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Result<TAnother, TAnotherOne> Run<TAnother, TAnotherOne>(Func<TFirst, TSecond, Result<TAnother, TAnotherOne>> action)
         {
             return this switch
@@ -254,6 +266,18 @@ namespace Calc.Domain.Functional
                 _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => Result<TAnother, TAnotherOne>.FromException(_exception.Value),
                 _ => Result<TAnother, TAnotherOne>.Impossible
+            };
+        }
+
+        [Pure]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public RichResult<TAnother, TAnotherOne> Run<TAnother, TAnotherOne>(Func<TFirst, TSecond, RichResult<TAnother, TAnotherOne>> action)
+        {
+            return this switch
+            {
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
+                _ when _exception.Provided => RichResult<TAnother, TAnotherOne>.FromException(_exception.Value),
+                _ => RichResult<TAnother, TAnotherOne>.Impossible
             };
         }
 

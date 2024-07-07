@@ -1,7 +1,7 @@
-﻿namespace Calc.Domain.Calculations
-{
-    using Functional;
+﻿using ThirdParty.Functional;
 
+namespace Calc.Domain.Calculations
+{
     public abstract record UnsignedBinaryOperator
     {
         protected abstract string RawRepresentation { get; }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calc.Domain.Functional.Outcome
+namespace ThirdParty.Functional.Outcome
 {
     public static class Expected
     {

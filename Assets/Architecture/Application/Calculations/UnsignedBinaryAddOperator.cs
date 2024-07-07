@@ -1,12 +1,14 @@
 ﻿using System;
+using ThirdParty.Functional;
 
 namespace Calc.Application.Calculations
 {
     using Domain.Calculations;
-    using Domain.Functional;
 
-    public sealed record UnsignedAddOperator : UnsignedBinaryOperator
+    internal sealed record UnsignedBinaryAddOperator : UnsignedBinaryOperator
     {
+        protected override string RawRepresentation => "+";
+
         public override Result<UnsignedOperand> Calculate(UnsignedOperand first, UnsignedOperand second)
         {
             try

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
 namespace Calc.Application.Tests.FunctionalTests
@@ -23,7 +22,7 @@ namespace Calc.Application.Tests.FunctionalTests
             var candidate = firstResult.Combine(secondResult)
                 .Run(static (first, second) =>
                 {
-                    var @operator = new UnsignedAddOperator();
+                    var @operator = new UnsignedBinaryAddOperator();
 
                     return new UnsignedOperation(first, second, @operator)
                         .Execute();
@@ -31,7 +30,8 @@ namespace Calc.Application.Tests.FunctionalTests
 
             return candidate.Match
             (
-                success: static provided => provided.Raw,
+                success: static (provided, _) => provided.Raw,
+                failure: static failure => throw failure.ToException(),
                 error: static exception => throw exception
             );
         }
@@ -45,7 +45,7 @@ namespace Calc.Application.Tests.FunctionalTests
             var candidate = firstResult.Combine(secondResult)
                 .Run(static (first, second) =>
                 {
-                    var @operator = new UnsignedAddOperator();
+                    var @operator = new UnsignedBinaryAddOperator();
 
                     return new UnsignedOperation(first, second, @operator)
                         .Execute();
@@ -53,8 +53,9 @@ namespace Calc.Application.Tests.FunctionalTests
 
             candidate.Match
             (
-                success: static _ => Assert.Fail("Should not happen!"),
-                error: static exception => Assert.IsTrue(exception is OverflowException)
+                success: static (_, _) => Assert.Fail("Should not happen!"),
+                failure: static failure => Assert.Pass(failure.Message),
+                error: static exception => throw exception
             );
         }
     }

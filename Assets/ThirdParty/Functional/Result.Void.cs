@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 
-namespace Calc.Domain.Functional
+namespace ThirdParty.Functional
 {
     using Outcome;
 

@@ -23,7 +23,7 @@ namespace Calc.Application.Tests.FunctionalTests
             var candidate = firstResult.Combine(secondResult)
                 .Run(static (first, second) =>
                 {
-                    return new UnsignedAddOperator()
+                    return new UnsignedBinaryAddOperator()
                         .Calculate(first, second);
                 });
 
@@ -43,7 +43,7 @@ namespace Calc.Application.Tests.FunctionalTests
             var candidate = firstResult.Combine(secondResult)
                 .Run(static (first, second) =>
                 {
-                    return new UnsignedAddOperator()
+                    return new UnsignedBinaryAddOperator()
                         .Calculate(first, second);
                 });
 

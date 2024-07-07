@@ -10,19 +10,19 @@ namespace Calc.Application.Tests.UnitTests
     internal sealed class UnsignedAddOperation_UnitTests
     {
         [Test]
-        public void UnsignedAddOperation_Created_Passes()
+        public void UnsignedAddOperator_Created_Passes()
         {
-            var candidate = new UnsignedAddOperator();
+            var candidate = new UnsignedBinaryAddOperator();
 
             Assert.IsNotNull(candidate);
         }
 
         [Test]
-        public void UnsignedAddOperation_WithDefaultData_Passes()
+        public void UnsignedAddOperator_WithDefaultData_Passes()
         {
             var first = default(UnsignedOperand);
             var second = default(UnsignedOperand);
-            var operation = new UnsignedAddOperator();
+            var operation = new UnsignedBinaryAddOperator();
 
             var candidate = operation.Calculate(first, second);
             candidate.Match

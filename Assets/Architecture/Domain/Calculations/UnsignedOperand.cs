@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using ThirdParty.Functional;
 
 namespace Calc.Domain.Calculations
 {
-    using Functional;
-
     public readonly record struct UnsignedOperand
     {
         public decimal Raw { get; }
