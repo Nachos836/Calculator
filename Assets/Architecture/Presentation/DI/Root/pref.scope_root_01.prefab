@@ -48,3 +48,8 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _mainScene:
+    m_AssetGUID: 54008f8c6450ce748be4d6069cb1f562
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
