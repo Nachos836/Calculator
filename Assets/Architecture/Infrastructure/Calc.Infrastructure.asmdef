@@ -2,15 +2,20 @@
     "name": "Calc.Infrastructure",
     "rootNamespace": "Calc",
     "references": [
-        "GUID:da0300a2bd0f4829a20bb61316edfaf7"
+        "GUID:da0300a2bd0f4829a20bb61316edfaf7",
+        "GUID:62fbde149165a684cb0d09927f9f36db",
+        "GUID:36e5c4f26fb1c3b48922caa7032fb12a",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": true,
-    "precompiledReferences": [],
+    "precompiledReferences": [
+        "LiteDB.dll"
+    ],
     "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": true
+    "noEngineReferences": false
 }
