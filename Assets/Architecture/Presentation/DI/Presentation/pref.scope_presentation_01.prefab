@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: 
+    TypeName: Calc.Infrastructure.DI.InfrastructureScope
   autoRun: 1
   autoInjectGameObjects: []
+  _mainWindowPresenter: {fileID: 0}
+  _mainWindowView: {fileID: 0}
+  _errorPopupPresenter: {fileID: 0}
+  _errorPopupView: {fileID: 0}
+  _viewRouter: {fileID: 0}
