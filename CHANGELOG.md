@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## v0.5.0-alpha
+#### Establishing Infrastructure Layer
+
+### Added:
+1. LiteDB as documented database
+2. Infrastructure Layer
+   1. Calculator Event Sourcing implementation
+   2. Independent DI Registration
+### Changed:
+1. Updated dependencies
+
+---
+
 ## v0.4.0-alpha
 #### Establishing Application Layer
 

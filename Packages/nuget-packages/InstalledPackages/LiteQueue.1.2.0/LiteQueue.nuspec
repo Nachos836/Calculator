@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>LiteQueue</id>
+    <version>1.2.0</version>
+    <authors>Nick Bushby</authors>
+    <licenseUrl>https://github.com/NomadeonSoftwareLLC/LiteQueue/blob/master/LICENSE</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>http://nomadeon.com/2018/06/07/litequeue/</projectUrl>
+    <description>Lightweight, persisted, thread safe, (optionally) transactional, FIFO queue built on LiteDB.</description>
+    <releaseNotes>Updated to latest LiteDB
+See README for new threading requirements</releaseNotes>
+    <copyright>Nomadeon Software LLC</copyright>
+    <tags>LiteDB, MSMQ, Queue</tags>
+    <repository type="Git" url="https://github.com/NomadeonSoftwareLLC/LiteQueue" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="LiteDB" version="5.0.15" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
