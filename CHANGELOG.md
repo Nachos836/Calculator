@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## v0.4.0-alpha
+#### Establishing Application Layer
+
+### Added:
+1. Bypass Unity Limitations third party feature
+2. Application Layer
+   1. Unit Tests
+   2. Functional Tests
+   3. Calculator contract
+   4. Event Sourcing contract
+### Changed:
+1. Result pattern moved to Third Party
+2. Domain and Tests are tuned up to Application
+3. Updated dependencies
+### Removed:
+1. Redundant Result tests in Domain Layer
+
+---
+
 ## v0.3.0-alpha
 #### Establishing Domain Layer
 
