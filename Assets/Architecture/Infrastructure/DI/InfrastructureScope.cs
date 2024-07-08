@@ -14,8 +14,6 @@ namespace Calc.Infrastructure.DI
         {
             base.Configure(builder);
 
-            Debug.Log(UnityEngine.Application.persistentDataPath);
-
             builder.Register<CalculationEventSourcingLiteDb>(Lifetime.Singleton)
                 .WithParameter(UnityEngine.Application.persistentDataPath + "/" + _databasePath)
                 .AsImplementedInterfaces();
