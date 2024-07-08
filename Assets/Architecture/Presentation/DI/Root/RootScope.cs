@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using VContainer;
 using VContainer.Unity;
 
@@ -12,6 +13,8 @@ namespace Calc.Presentation.DI.Root
     [DisallowMultipleComponent]
     internal sealed class RootScope : LifetimeScope
     {
+        [SerializeField] private AssetReference _mainScene = default!;
+
         private IDisposable? _loggerHandler;
 
         protected override void Configure(IContainerBuilder builder)
@@ -22,7 +25,9 @@ namespace Calc.Presentation.DI.Root
                 .AddGlobalLogger(out var logger, out _loggerHandler)
                 .AddLogger<ApplicationEntryPoint>();
 
-            builder.RegisterEntryPoint<ApplicationEntryPoint>();
+            builder.RegisterEntryPoint<ApplicationEntryPoint>()
+                .WithParameter(_mainScene)
+                .WithParameter((MonoBehaviour) this);
             builder.RegisterEntryPointExceptionHandler(logger.HandleException);
         }
 

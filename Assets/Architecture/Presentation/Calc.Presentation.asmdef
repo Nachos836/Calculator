@@ -4,8 +4,19 @@
     "references": [
         "GUID:da0300a2bd0f4829a20bb61316edfaf7",
         "GUID:62fbde149165a684cb0d09927f9f36db",
+        "GUID:af4ff357f64c4038bcf2f409ec887210",
+        "GUID:36e5c4f26fb1c3b48922caa7032fb12a",
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:2b78dc61ba35e42c39ba2aabce11b6c4"
+        "GUID:08b38f39e2d9e594389b7a4cf4c2c338",
+        "GUID:4f682e06dbb3e624faedad9cc27106cc",
+        "GUID:2b78dc61ba35e42c39ba2aabce11b6c4",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:5c01796d064528144a599661eaab93a6",
+        "GUID:dc47925d1a5fa2946bdd37746b2b5d48",
+        "GUID:593a5b492d29ac6448b1ebf7f035ef33"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

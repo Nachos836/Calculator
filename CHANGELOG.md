@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## v0.6.0-alpha
+#### Establishing Presentation Layer
+
+### Added:
+1. Presentation Layer
+   1. Application Entry Point
+      1. Async loader for Main Scene
+   2. Initial Scene
+   3. Main Scene
+      1. Calculator Main Window (MVP)
+      2. Error Message Popup (MVP)
+      3. View Routing
+2. TextMeshPro Resources
+3. Infrastructure Addressables Group
+### Changed:
+1. Updated dependencies
+### Removed:
+1. Redundant logging in Infrastructure DI
+### Know Issues:
+1. State preserved with extra error message
+2. List of operations lacks latest element
+3. Error Popup lacks latest message
+
+---
+
 ## v0.5.0-alpha
 #### Establishing Infrastructure Layer
 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Architecture-Infrastructure
+  m_EditorClassIdentifier: 
+  m_GroupName: Architecture-Infrastructure
+  m_Data:
+    m_SerializedData: []
+  m_GUID: af771b96442d2ee45b9185173c943aba
+  m_SerializeEntries:
+  - m_GUID: 836078f2a35f49d4849ffde727f4bddb
+    m_Address: Assets/Architecture/Infrastructure
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b3b796f32d10a5d47996cfe15a74072d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b526b42a75b73ee498f4d33998666a15, type: 2}
+    - {fileID: 11400000, guid: 090ea201a9e017f40b7ece9a333a7acb, type: 2}
