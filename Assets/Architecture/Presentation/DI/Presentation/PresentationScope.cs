@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using VContainer.Unity;
 
-namespace Calc.Architecture.Presentation.DI.Presentation
+namespace Calc.Presentation.DI.Presentation
 {
     [AddComponentMenu("Game/Architecture/Presentation Scope")]
     [DisallowMultipleComponent]

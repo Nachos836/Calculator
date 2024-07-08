@@ -1,7 +1,9 @@
 {
     "name": "Calc.Domain",
     "rootNamespace": "Calc",
-    "references": [],
+    "references": [
+        "GUID:af4ff357f64c4038bcf2f409ec887210"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,

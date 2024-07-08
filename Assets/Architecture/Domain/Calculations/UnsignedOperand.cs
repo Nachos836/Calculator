@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using ThirdParty.Functional;
 
 namespace Calc.Domain.Calculations
 {
-    using Functional;
-
     public readonly record struct UnsignedOperand
     {
         public decimal Raw { get; }
@@ -29,6 +29,12 @@ namespace Calc.Domain.Calculations
         private UnsignedOperand(decimal income)
         {
             Raw = income;
+        }
+
+        public override string ToString()
+        {
+            return decimal.Truncate(Raw)
+                .ToString(CultureInfo.InvariantCulture);
         }
     }
 }

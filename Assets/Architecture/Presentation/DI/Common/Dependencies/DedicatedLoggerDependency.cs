@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using VContainer;
 
-namespace Calc.Architecture.Presentation.DI.Common.Dependencies
+namespace Calc.Presentation.DI.Common.Dependencies
 {
     internal static class DedicatedLoggerDependency
     {

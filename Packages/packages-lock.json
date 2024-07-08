@@ -29,7 +29,7 @@
       "url": "https://package.openupm.com"
     },
     "com.cysharp.zlogger": {
-      "version": "2.5.0",
+      "version": "2.5.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -217,7 +217,7 @@
       }
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.16.1",
+      "version": "1.16.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Calc.Architecture.Presentation.UnityEditorUtils
+namespace Calc.Presentation.UnityEditorUtils
 {
 	internal static class AssetsReserialize
     {

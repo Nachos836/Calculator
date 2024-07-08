@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using VContainer.Unity;
 using ZLogger;
 
-namespace Calc.Architecture.Presentation
+namespace Calc.Presentation
 {
     internal sealed class ApplicationEntryPoint : IInitializable
     {

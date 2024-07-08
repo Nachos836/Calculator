@@ -2,7 +2,9 @@
     "name": "Calc.Application",
     "rootNamespace": "Calc",
     "references": [
-        "GUID:c4908d543b1583042a61745621f19a1e"
+        "GUID:c4908d543b1583042a61745621f19a1e",
+        "GUID:36e5c4f26fb1c3b48922caa7032fb12a",
+        "GUID:af4ff357f64c4038bcf2f409ec887210"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

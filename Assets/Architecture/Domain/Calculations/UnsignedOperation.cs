@@ -1,7 +1,9 @@
-﻿namespace Calc.Domain.Calculations
-{
-    using Functional;
+﻿using System;
+using ThirdParty.Functional;
+using ThirdParty.Functional.Outcome;
 
+namespace Calc.Domain.Calculations
+{
     public readonly record struct UnsignedOperation
     {
         private readonly UnsignedOperand _first;
@@ -15,9 +17,28 @@
             _operator = @operator;
         }
 
-        public Result<UnsignedOperand> Execute()
+        public RichResult<UnsignedOperand, string> Execute()
         {
-            return _operator.Calculate(_first, _second);
+            var first = _first;
+            var second = _second;
+            var @operator = _operator;
+
+            return _operator.Calculate(_first, _second)
+                .Match
+                (
+                    success: result => RichResult<UnsignedOperand, string>.FromResult
+                    (
+                        result, $"{first}{@operator}{second}={result}"
+                    ),
+                    error: exception =>
+                    {
+                        return exception switch
+                        {
+                            OverflowException => new Expected.Failure($"{first}{@operator}{second}=ERROR"),
+                            _ => RichResult<UnsignedOperand, string>.Impossible,
+                        };
+                    }
+                );
         }
     }
 }
