@@ -45,8 +45,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => Result<TValue, TAnother>.FromResult(_income.Value, another),
                 _ when _exception.Provided => Result<TValue, TAnother>.FromException(_exception.Value),
+                _ when _income.Provided => Result<TValue, TAnother>.FromResult(_income.Value, another),
                 _ => Result<TValue, TAnother>.Impossible
             };
         }
@@ -57,8 +57,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => Combine(merge.Invoke(_income.Value)),
                 _ when _exception.Provided => Result<TValue, TAnother>.FromException(_exception.Value),
+                _ when _income.Provided => Combine(merge.Invoke(_income.Value)),
                 _ => Result<TValue, TAnother>.Impossible
             };
         }
@@ -69,10 +69,10 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided && another._income.Provided => Result<TValue, TAnother>.FromResult(_income.Value, another._income.Value),
                 _ when _exception.Provided && another._exception.Provided => Result<TValue, TAnother>.FromException(new AggregateException(_exception.Value, another._exception.Value)),
                 _ when _exception.Provided => Result<TValue, TAnother>.FromException(_exception.Value),
                 _ when another._exception.Provided => Result<TValue, TAnother>.FromException(another._exception.Value),
+                _ when _income.Provided && another._income.Provided => Result<TValue, TAnother>.FromResult(_income.Value, another._income.Value),
                 _ => Result<TValue, TAnother>.Impossible
             };
         }
@@ -92,8 +92,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => run.Invoke(_income.Value),
                 _ when _exception.Provided => Result.FromException(_exception.Value),
+                _ when _income.Provided => run.Invoke(_income.Value),
                 _ => Result.Impossible
             };
         }
@@ -104,8 +104,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => run.Invoke(_income.Value),
                 _ when _exception.Provided => Result<TAnother>.FromException(_exception.Value),
+                _ when _income.Provided => run.Invoke(_income.Value),
                 _ => Result<TAnother>.Impossible
             };
         }
@@ -133,8 +133,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => success.Invoke(_income.Value),
                 _ when _exception.Provided => error.Invoke(_exception.Value),
+                _ when _income.Provided => success.Invoke(_income.Value),
                 _ => error.Invoke(Outcome.Unexpected.Impossible)
             };
         }
@@ -145,8 +145,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => success.Invoke(_income.Value),
                 _ when _exception.Provided => error.Invoke(_exception.Value),
+                _ when _income.Provided => success.Invoke(_income.Value),
                 _ => error.Invoke(Outcome.Unexpected.Impossible)
             };
         }
@@ -157,8 +157,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => _income.Value!.ToString(),
                 _ when _exception.Provided => _exception.Value.Message,
+                _ when _income.Provided => _income.Value!.ToString(),
                 _ => Outcome.Unexpected.Impossible.Message
             };
         }
@@ -206,8 +206,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => reducer.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => Result<TFirst>.FromException(_exception.Value),
+                _ when _income.Provided => reducer.Invoke(_income.First, _income.Second),
                 _ => Result<TFirst>.Impossible
             };
         }
@@ -218,8 +218,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => reducer.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => Result<TSecond>.FromException(_exception.Value),
+                _ when _income.Provided => reducer.Invoke(_income.First, _income.Second),
                 _ => Result<TSecond>.Impossible
             };
         }
@@ -239,8 +239,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => Result<TAnother>.FromException(_exception.Value),
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ => Result<TAnother>.Impossible
             };
         }
@@ -251,8 +251,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => RichResult<TAnother>.FromException(_exception.Value),
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ => RichResult<TAnother>.Impossible
             };
         }
@@ -263,8 +263,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => Result<TAnother, TAnotherOne>.FromException(_exception.Value),
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ => Result<TAnother, TAnotherOne>.Impossible
             };
         }
@@ -275,8 +275,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => RichResult<TAnother, TAnotherOne>.FromException(_exception.Value),
+                _ when _income.Provided => action.Invoke(_income.First, _income.Second),
                 _ => RichResult<TAnother, TAnotherOne>.Impossible
             };
         }
@@ -304,8 +304,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => success.Invoke(_income.First, _income.Second),
                 _ when _exception.Provided => error.Invoke(_exception.Value),
+                _ when _income.Provided => success.Invoke(_income.First, _income.Second),
                 _ => error.Invoke(Outcome.Unexpected.Impossible)
             };
         }
@@ -316,8 +316,8 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _income.Provided => $"{ _income.First } { _income.Second }",
                 _ when _exception.Provided => _exception.Value.Message,
+                _ when _income.Provided => $"{ _income.First } { _income.Second }",
                 _ => Outcome.Unexpected.Impossible.Message
             };
         }

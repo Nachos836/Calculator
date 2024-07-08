@@ -68,13 +68,13 @@ namespace ThirdParty.Functional
         {
             return this switch
             {
-                _ when _result.Provided => RichResult<TValue, TAnother>.FromResult(_result.Value, another._result.Value),
                 _ when _unexpected.Provided && another._unexpected.Provided => RichResult<TValue, TAnother>.FromException(new AggregateException(_unexpected.Error, another._unexpected.Error)),
                 _ when _unexpected.Provided => RichResult<TValue, TAnother>.FromException(_unexpected.Error),
                 _ when another._unexpected.Provided => RichResult<TValue, TAnother>.FromException(new AggregateException(another._unexpected.Error)),
                 _ when _expected.Provided && another._expected.Provided => RichResult<TValue, TAnother>.FromFailure(new Expected.Failure(_expected.Failure.Message + " and " + another._expected.Failure.Message)),
                 _ when _expected.Provided => RichResult<TValue, TAnother>.FromFailure(_expected.Failure),
                 _ when another._expected.Provided => RichResult<TValue, TAnother>.FromFailure(another._expected.Failure),
+                _ when _result.Provided => RichResult<TValue, TAnother>.FromResult(_result.Value, another._result.Value),
                 _ => RichResult<TValue, TAnother>.FromException(Unexpected.Impossible)
             };
         }
@@ -199,6 +199,28 @@ namespace ThirdParty.Functional
             else
             {
                 return RichResult<TAnother>.FromException(Unexpected.Impossible);
+            }
+        }
+
+        [Pure]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public RichResult<TAnother, TAnotherOne> Run<TAnother, TAnotherOne>(Func<TFirst, TSecond, RichResult<TAnother, TAnotherOne>> func)
+        {
+            if (_result.Provided)
+            {
+                return func.Invoke(_result.First, _result.Second);
+            }
+            else if (_expected.Provided)
+            {
+                return RichResult<TAnother, TAnotherOne>.FromFailure(_expected.Failure);
+            }
+            else if (_unexpected.Provided)
+            {
+                return RichResult<TAnother, TAnotherOne>.FromException(_unexpected.Error);
+            }
+            else
+            {
+                return RichResult<TAnother, TAnotherOne>.FromException(Unexpected.Impossible);
             }
         }
 
