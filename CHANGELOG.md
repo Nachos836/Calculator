@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.6.2-alpha
+
+### Added:
+1. Debug panel (for Debug Builds only)
+### Changed:
+1. Evaluated list disabled from inspector, not via Awake
+2. Event System moved from Main to Initial scene
+3. Cleanup views layout
+### Fixed:
+1. Enable and Instant Disable of Evaluated list
+2. Documentation redundant quote symbols
+
+---
+
 ## v0.6.1-alpha
 
 ### Added:
