@@ -36,6 +36,7 @@ MonoBehaviour:
     - com.cysharp.messagepipe
     - com.github-glitchenzo.nugetforunity
     - com.cysharp.zlogger
+    - com.yasirkula.ingamedebugconsole
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
