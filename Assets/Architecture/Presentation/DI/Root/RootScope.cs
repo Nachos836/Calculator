@@ -13,9 +13,22 @@ namespace Calc.Presentation.DI.Root
     [DisallowMultipleComponent]
     internal sealed class RootScope : LifetimeScope
     {
+        [Header("Main Scene to load")]
         [SerializeField] private AssetReference _mainScene = default!;
 
+        [Header("Debug Build Stuff")]
+        [SerializeField] private GameObject _debugPanel = default!;
+
         private IDisposable? _loggerHandler;
+
+        protected override void Awake()
+        {
+        #if DEBUG && !UNITY_EDITOR
+            _debugPanel.SetActive(true);
+        # endif
+
+            base.Awake();
+        }
 
         protected override void Configure(IContainerBuilder builder)
         {
