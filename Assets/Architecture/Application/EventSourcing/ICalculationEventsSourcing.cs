@@ -7,6 +7,6 @@ namespace Calc.Application.EventSourcing
     {
         void Append(Event @event);
         IEnumerable<string> MaterializeView(Guid session);
-        string GetLatestFromMaterializedView(Guid session);
+        string? GetLatestFromMaterializedView(Guid session);
     }
 }

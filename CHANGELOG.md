@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## v0.6.1-alpha
+
+### Added:
+1. HOWTO section in documentation
+2. Motivation part in README.md
+3. WIKI documentation
+### Changed:
+1. Segregate LogLevel Critical and Exceptions
+2. Main Scene segregated via prefabs
+### Fixed:
+1. Calculator Events Stream no longer stuck with ClosedEvent
+2. Error Popup processed error only at button press
+3. Main Window suffer for late events publishing
+### Know Issues:
+1. Saved state in the Calculator Build is not fetched initially
+
+---
+
 ## v0.6.0-alpha
 #### Establishing Presentation Layer
 

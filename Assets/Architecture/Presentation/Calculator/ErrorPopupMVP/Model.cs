@@ -14,6 +14,8 @@ namespace Calc.Presentation.Calculator.ErrorPopupMVP
         private CalculationErrorOccured? _lastError;
         private IDisposable? _errorOccuredSubscription;
 
+        public event Action<string>? ErrorOccured;
+
         public Model(IPublisher<CalculationErrorProcessed> errorProcessedEvent, ISubscriber<CalculationErrorOccured> errorOccuredEvent)
         {
             _errorProcessedEvent = errorProcessedEvent;
@@ -23,13 +25,24 @@ namespace Calc.Presentation.Calculator.ErrorPopupMVP
         void IStartable.Start()
         {
             _errorOccuredSubscription?.Dispose();
-            _errorOccuredSubscription = _errorOccuredEvent.Subscribe(error => _lastError = error);
+            _errorOccuredSubscription = _errorOccuredEvent.Subscribe(error =>
+            {
+                _lastError = error;
+
+                if (TryPeekOnLastError(out var message))
+                {
+                    ErrorOccured?.Invoke(message);
+                }
+            });
         }
 
-        public bool TryHandleError(out string message)
+        public void NotifyErrorHandled()
         {
             _errorProcessedEvent.Publish(new CalculationErrorProcessed());
+        }
 
+        public bool TryPeekOnLastError(out string message)
+        {
             if (_lastError is not null)
             {
                 message = _lastError.Message;
