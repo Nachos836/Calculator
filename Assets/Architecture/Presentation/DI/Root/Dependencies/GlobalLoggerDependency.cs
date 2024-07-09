@@ -30,7 +30,7 @@ namespace Calc.Presentation.DI.Root.Dependencies
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal static partial class GlobalLoggerDependency_GeneratedLogFormats
     {
-        [ZLoggerMessage(LogLevel.Critical)]
+        [ZLoggerMessage(LogLevel.Error)]
         public static partial void HandleException(this ILogger logger, Exception ex);
     }
 }

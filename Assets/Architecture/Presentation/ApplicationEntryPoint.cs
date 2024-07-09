@@ -45,10 +45,10 @@ namespace Calc.Presentation
         [ZLoggerMessage(LogLevel.Warning, "{message}")]
         public static partial void Warning(this ILogger<ApplicationEntryPoint> logger, string message);
 
-        [ZLoggerMessage(LogLevel.Error, "{message}")]
-        public static partial void Error(this ILogger<ApplicationEntryPoint> logger, string message);
+        [ZLoggerMessage(LogLevel.Error)]
+        public static partial void Exception(this ILogger<ApplicationEntryPoint> logger, Exception ex);
 
         [ZLoggerMessage(LogLevel.Critical)]
-        public static partial void Exception(this ILogger<ApplicationEntryPoint> logger, Exception ex);
+        public static partial void Critical(this ILogger<ApplicationEntryPoint> logger, Exception ex);
     }
 }
