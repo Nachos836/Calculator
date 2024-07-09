@@ -20,14 +20,10 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
         [SerializeField] private TMP_Text _evaluatedExpressionPrefab = default!;
         [SerializeField] private Transform _evaluatedListContent = default!;
 
+        private bool _evaluatedListEnabled;
+
         public event Action<string>? CalculationsRequested;
         public event Action? CloseRequested;
-
-        private void Awake()
-        {
-            _evaluatedListView.gameObject.SetActive(false);
-            _clear.gameObject.SetActive(false);
-        }
 
         private void OnEnable()
         {
@@ -78,27 +74,6 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
             }
         }
 
-        public void ClearInputField()
-        {
-            _inputField.DeactivateInputField(clearSelection: true);
-            _inputField.ActivateInputField();
-        }
-
-        private void EvaluatedListEnable()
-        {
-            _evaluatedListView.gameObject.SetActive(true);
-            _clear.gameObject.SetActive(true);
-        }
-
-        private void AddNewTextFieldInList(string sessionPeekExpression)
-        {
-            var candidate = Instantiate(_evaluatedExpressionPrefab, _evaluatedListContent);
-            candidate.text = sessionPeekExpression;
-            candidate.ForceMeshUpdate(forceTextReparsing: true);
-            candidate.SetNativeSize();
-            candidate.transform.SetSiblingIndex(0);
-        }
-
         private void OnEvaluateClicked()
         {
             CalculationsRequested?.Invoke(_inputField.text);
@@ -113,8 +88,42 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
             ClearInputField();
             ClearEvaluatedList();
 
+            EvaluatedListDisable();
+        }
+
+        public void ClearInputField()
+        {
+            _inputField.DeactivateInputField(clearSelection: true);
+            _inputField.ActivateInputField();
+        }
+
+        private void EvaluatedListEnable()
+        {
+            if (_evaluatedListEnabled) return;
+
+            _evaluatedListEnabled = true;
+
+            _evaluatedListView.gameObject.SetActive(true);
+            _clear.gameObject.SetActive(true);
+        }
+
+        private void EvaluatedListDisable()
+        {
+            if (_evaluatedListEnabled is false) return;
+
+            _evaluatedListEnabled = false;
+
             _evaluatedListView.gameObject.SetActive(false);
             _clear.gameObject.SetActive(false);
+        }
+
+        private void AddNewTextFieldInList(string sessionPeekExpression)
+        {
+            var candidate = Instantiate(_evaluatedExpressionPrefab, _evaluatedListContent);
+            candidate.text = sessionPeekExpression;
+            candidate.ForceMeshUpdate(forceTextReparsing: true);
+            candidate.SetNativeSize();
+            candidate.transform.SetSiblingIndex(0);
         }
     }
 }
