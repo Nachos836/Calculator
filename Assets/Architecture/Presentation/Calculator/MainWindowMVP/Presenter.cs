@@ -54,26 +54,33 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
             (
                 success: (value, resultedString) =>
                 {
-                    _view.UpdateInputField(value);
-                    _view.UpdateEvaluatedList(_session.PeekExpression);
-
                     _session.PublishResult(value, resultedString);
+
+                    _view.UpdateInputField(value);
+
+                    if (_session.PeekExpression is { } expression)
+                    {
+                        _view.UpdateEvaluatedList(expression);
+                    }
 
                     _logger.Info(resultedString);
                 },
                 failure: failure =>
                 {
-                    _view.UpdateEvaluatedList(_session.PeekExpression);
-
                     _session.PublishFailure(failure);
+
+                    if (_session.PeekExpression is { } expression)
+                    {
+                        _view.UpdateEvaluatedList(expression);
+                    }
 
                     _logger.Warning(failure.Message);
                 },
                 error: exception =>
                 {
-                    _logger.Exception(exception);
-
                     _session.PublishError(exception);
+
+                    _logger.Exception(exception);
                 }
             );
         }
@@ -107,10 +114,10 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
         [ZLoggerMessage(LogLevel.Warning, "{message}")]
         public static partial void Warning(this ILogger<Presenter> logger, string message);
 
-        [ZLoggerMessage(LogLevel.Error, "{message}")]
-        public static partial void Error(this ILogger<Presenter> logger, string message);
+        [ZLoggerMessage(LogLevel.Error)]
+        public static partial void Exception(this ILogger<Presenter> logger, Exception ex);
 
         [ZLoggerMessage(LogLevel.Critical)]
-        public static partial void Exception(this ILogger<Presenter> logger, Exception ex);
+        public static partial void Critical(this ILogger<Presenter> logger, Exception ex);
     }
 }

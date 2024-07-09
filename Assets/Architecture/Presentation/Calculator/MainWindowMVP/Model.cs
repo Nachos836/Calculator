@@ -41,7 +41,7 @@ namespace Calc.Presentation.Calculator.MainWindowMVP
         private readonly Guid _session;
 
         public IEnumerable<string> CalculatedExpressions => _calculationEvents.MaterializeView(_session);
-        public string PeekExpression => _calculationEvents.GetLatestFromMaterializedView(_session);
+        public string? PeekExpression => _calculationEvents.GetLatestFromMaterializedView(_session);
 
         internal SessionHandler
         (
