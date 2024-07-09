@@ -216,6 +216,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.yasirkula.ingamedebugconsole": {
+      "version": "1.6.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "jp.hadashikick.vcontainer": {
       "version": "1.16.2",
       "depth": 0,
